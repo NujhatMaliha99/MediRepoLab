@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MedReproLab Admin</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="login-panel" id="loginPanel">
+        <div class="brand">
+          <div class="brand-mark">M</div>
+          <div>
+            <h1>MedReproLab Admin</h1>
+            <p>Review submitted research experiments.</p>
+          </div>
+        </div>
+
+        <form id="loginForm" class="login-form">
+          <label>
+            Admin Email
+            <input id="email" type="email" value="admin@medreprolab.ai" autocomplete="email" required />
+          </label>
+          <label>
+            Password
+            <input id="password" type="password" value="Admin@1234" autocomplete="current-password" required />
+          </label>
+          <button type="submit">Sign In</button>
+          <p id="loginError" class="error"></p>
+        </form>
+      </section>
+
+      <section class="admin-panel hidden" id="adminPanel">
+        <aside class="sidebar">
+          <div class="brand compact">
+            <div class="brand-mark">M</div>
+            <div>
+              <h1>Admin</h1>
+              <p id="adminName">Review Board</p>
+            </div>
+          </div>
+          <nav>
+            <button class="nav-item active" data-view="reviews" data-status="">All Requests</button>
+            <button class="nav-item" data-view="reviews" data-status="pending">Pending</button>
+            <button class="nav-item" data-view="reviews" data-status="approved">Approved</button>
+            <button class="nav-item" data-view="reviews" data-status="denied">Denied</button>
+          </nav>
+          <button class="logout" id="logoutButton">Sign Out</button>
+        </aside>
+
+        <section class="content">
+          <header class="topbar">
+            <div>
+              <h2>Review Requests</h2>
+              <p id="viewSubtitle">Approve or deny submitted experiments and projects from the backend admin panel.</p>
+            </div>
+            <button id="refreshButton" class="secondary">Refresh</button>
+          </header>
+
+          <div class="stats">
+            <article>
+              <span>Total</span>
+              <strong id="totalCount">0</strong>
+            </article>
+            <article>
+              <span>Pending</span>
+              <strong id="pendingCount">0</strong>
+            </article>
+            <article>
+              <span>Approved</span>
+              <strong id="approvedCount">0</strong>
+            </article>
+            <article>
+              <span>Denied</span>
+              <strong id="deniedCount">0</strong>
+            </article>
+          </div>
+
+          <div id="notice" class="notice hidden"></div>
+          <div id="requests" class="requests"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
